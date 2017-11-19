@@ -1,4 +1,10 @@
+/* Author: Ranjith R
+   Date: 19-11-2017 
+   Angular ns-stateful directive initiated 
+*/
 (function(){
+	'use strict';
+
 	angular.module('pie')
 	.directive('nsStateful',component);
 

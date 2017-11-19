@@ -1,3 +1,8 @@
+/* Author: Ranjith R
+   Date: 19-11-2017 
+   PieController controller functionality Tests spec
+   Unit Test case followed by Jasmine and Karma test code runner by Javascript 
+*/
 (function(){
     'use strict';
     

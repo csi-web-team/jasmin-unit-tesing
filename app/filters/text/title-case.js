@@ -1,3 +1,8 @@
+/* Author: Ranjith R
+   Date: 19-11-2017 
+   Angular Version: v1.6.6
+   Angular titleCase filter initiated
+*/
 (function(){
 	'use strict';
 

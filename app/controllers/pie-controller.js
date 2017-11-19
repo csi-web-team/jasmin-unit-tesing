@@ -1,3 +1,8 @@
+/* Author: Ranjith R
+   Date: 19-11-2017 
+   Angular Version: v1.6.6
+   Angular Root module and pieController controller initiated 
+*/
 (function(){
 	'use strict';
 
