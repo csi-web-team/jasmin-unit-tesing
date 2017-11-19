@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="csv">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>TODO</title>
+
+    <!-- Bootstrap core CSS -->
+
+    <link href="bower_components/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <style>
+    .conPos{
+      position: relative;
+      top: 50px;
+    }
+    .pagination>li>a, .pagination>li>span {
+      position: relative;
+      float: left;
+      padding: 6px 12px;
+      line-height: 1.428571429;
+      text-decoration: none;
+      color: #428bca;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      margin-left: -1px;
+  }
+  .pdl10{
+    padding-right: 10px;
+  }
+  </style>
+
+  <body ng-controller="TableController as vm">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">TODO</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container conPos">
+
+      <!-- Portfolio Item Heading -->
+      <h1 class="my-4">{{vm.model.name}}</h1>
+      <p>{{vm.model.csvname}}</p>
+      <div class="row">
+        <input id="csv" type="file" file-reader="vm.fileContent" />
+        <div ng-if="vm.fileContent" class="content" ng-init="vm.processData(vm.fileContent)"></div>
+      </div>
+      <!-- Portfolio Item Row -->
+      <div class="row">
+
+        <div class="col-md-12">
+          <table class="table  table-hover data-table myTable">
+            <thead>
+                <tr>
+                    <th class="Firstname"> <a href="#">Firstname
+                         <span class="{{Header[0]}}"></span>
+                         </a>
+                    </th>
+                    <th class="Surname"> <a href="#"> Surname</a>
+                    </th>
+                    <th class="Issuecount"> <a href="#"> Issuecount
+                     <span class="glyphicon glyphicon-chevron-up"></span></a>
+                    </th>
+                    <th class="Dateofbirth"> <a href="#"> Dateofbirth
+                     </a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in vm.csvData track by $index">
+                    <td>{{item.Firstname}}</td>
+                    <td>{{item.Surname}}</td>
+                    <td>{{item.Issuecount}}</td>
+                    <td>{{item.Dateofbirth}}</td>
+                </tr>
+            </tbody>
+          </table>
+          <div class="row">
+            <div class="col-xs-5 pdl10" ng-if="vm.csvData.length > 0">
+                <button ng-click="vm.filterMinimal()" type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-plus">Find Minimal issue count</span>
+                </button>
+            </div>
+            <div class="col-xs-5" ng-if="vm.csvData.length > 0 && vm.resetBtn">
+                <button ng-click="vm.resetValues()" type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-plus">Reset</span>
+                </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+
+    <!--<script src="main.js"></script>-->
+    <script src="app/controllers/table-controller.js"></script>
+    <script src="app/directives/file-reader.js"></script>
+  </body>
+
+</html>
